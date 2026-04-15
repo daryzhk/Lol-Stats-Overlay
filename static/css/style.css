@@ -1,0 +1,62 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+div{
+    font-size: 16px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+.all_stats{
+    color: rgb(197, 198, 241);
+    text-shadow: 0px 0px 6px rgba(0,0,0,0.9);
+    position: relative;
+    width: 420px;
+    height: 250px;
+    padding: 8px 10px;
+    overflow: hidden;
+    background-image: url("../image/smolder.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.all_stats::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.738);
+  pointer-events: none;
+  z-index: 0;
+}
+.all_stats > *{
+  position: relative;
+  z-index: 1;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.game_stats{
+    font-family: "Nunito";
+}
+.about_champion{
+    font-family: "Onest";
+}
+.CD_skills{
+    font-family: "Onest";
+    margin-top: 30px;
+    margin-left: 35%;
+}
+li{
+    margin-top: 5px;
+}
+.full_damage{
+    font-weight: bolder;
+    font-style: italic;
+}

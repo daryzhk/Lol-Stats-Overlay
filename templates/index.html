@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+        <link href="{{ url_for ('static', filename = 'css/style.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="all_stats">
+            <div class="top">
+                <ul class="about_champion">
+                    <li>Сила: <span id="damage">...</span></li>
+                    <li>Крит. шанс: <span id="crit_chance">...</span></li>
+                    <li>Крит. урон: <span id="crit_damage">...</span></li>
+                    <li class="full_damage">Общий урон: <span id="all_damage">...</span></li>
+                </ul>
+                <ul class="about_champion">
+                    <li>Дальность: <span id="attack_range">...</span></li>
+                    <li>Скорость: <span id="attack_speed">...</span></li>
+                    <li>Лайфстил: <span id="lifesteal">...</span></li>
+                    <li>Пробив брони: <span id="armor_penetration_percent">...</span></li>
+                </ul>
+            </div>
+                <ul class="CD_skills">
+                    <li>Q: <span id="q">...</span></li>
+                    <li>E: <span id="e">...</span></li>
+                    <li>CDR: <span id="cdr">...</span></li>
+                </ul>
+        </div>
+        <script>
+
+async function updateData(){
+
+    const response = await fetch("/data")
+    const data = await response.json()
+
+    for (const key in data){
+        const element = document.getElementById(key)
+
+        if (element){
+            element.textContent = data[key]
+        }
+    }
+
+}
+
+setInterval(updateData, 2000)
+updateData()
+
+</script>
+    </body>
+</html>
